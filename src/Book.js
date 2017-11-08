@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 
 class Book extends Component {
 
+  // Shelf selection function that is triggered when a shelf is selected
+  changeShelf = (event) => {
+    var shelfName = event.target.value
+    this.props.moveToShelf(shelfName)
+  }
+
   render() {
 
     return (
@@ -11,11 +17,11 @@ class Book extends Component {
             className="book-cover"
             style={{ width: 128, height: 193, backgroundImage: `url(${this.props.coverURL})` }}></div>
           <div className="book-shelf-changer">
-            <select>
+            <select onChange={this.changeShelf} value={this.props.shelf}>
               <option value="none" disabled>Move to...</option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
+              <option value="Currently Reading">Currently Reading</option>
+              <option value="Want to Read">Want to Read</option>
+              <option value="Read">Read</option>
               <option value="none">None</option>
             </select>
           </div>
