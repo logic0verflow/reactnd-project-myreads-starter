@@ -18,7 +18,7 @@ class Book extends Component {
             style={{ width: 128, height: 193, backgroundImage: `url(${this.props.coverURL})` }}></div>
           <div className="book-shelf-changer">
             <select onChange={this.changeShelf} value={this.props.shelf}>
-              <option value="none" disabled>Move to...</option>
+              <option value="Default" disabled>Move to...</option>
               <option value="Currently Reading">Currently Reading</option>
               <option value="Want to Read">Want to Read</option>
               <option value="Read">Read</option>

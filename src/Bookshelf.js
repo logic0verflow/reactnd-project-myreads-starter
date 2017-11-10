@@ -19,7 +19,8 @@ class Bookshelf extends Component {
                   moveToShelf={ (shelfTitle) => {
                     // Setup a function that only requires the shelf name to
                     // restrict the book component to only moving itself
-                    this.props.moveBook(book.title, shelfTitle)
+                    book.shelf = shelfTitle
+                    this.props.moveBook(book)
                   }}
                   shelf={this.props.title}
                 />
