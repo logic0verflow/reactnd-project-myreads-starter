@@ -17,20 +17,23 @@ class ListBooks extends Component {
 
             <Bookshelf
               title="Currently Reading"
-              books={this.props.books.filter(book => book.shelf === "Currently Reading")}
+              books={this.props.books.filter(book => book.shelf === "currentlyReading")}
               moveBook={this.props.moveBook}
+              id="currentlyReading"
             />
 
             <Bookshelf
               title="Want to Read"
-              books={this.props.books.filter(book => book.shelf === "Want to Read")}
+              books={this.props.books.filter(book => book.shelf === "wantToRead")}
               moveBook={this.props.moveBook}
+              id="wantToRead"
             />
 
             <Bookshelf
               title="Read"
-              books={this.props.books.filter(book => book.shelf === "Read")}
+              books={this.props.books.filter(book => book.shelf === "read")}
               moveBook={this.props.moveBook}
+              id="read"
             />
 
           </div>

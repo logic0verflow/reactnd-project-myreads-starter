@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import * as BooksAPI from './BooksAPI'
 
 class Book extends Component {
 
@@ -6,6 +7,8 @@ class Book extends Component {
   changeShelf = (event) => {
     var shelfName = event.target.value
     this.props.moveToShelf(shelfName)
+    // Store the changes
+    BooksAPI.update(this.props, shelfName)
   }
 
   render() {
@@ -19,9 +22,9 @@ class Book extends Component {
           <div className="book-shelf-changer">
             <select onChange={this.changeShelf} value={this.props.shelf}>
               <option value="Default" disabled>Move to...</option>
-              <option value="Currently Reading">Currently Reading</option>
-              <option value="Want to Read">Want to Read</option>
-              <option value="Read">Read</option>
+              <option value="currentlyReading">Currently Reading</option>
+              <option value="wantToRead">Want to Read</option>
+              <option value="read">Read</option>
               <option value="none">None</option>
             </select>
           </div>

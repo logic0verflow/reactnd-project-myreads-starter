@@ -11,18 +11,21 @@ class Bookshelf extends Component {
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books.map(book => (
-              <li key={book.title}>
+              <li key={book.id}>
                 <Book
-                  coverURL={book.coverURL}
+                  coverURL={book.imageLinks.thumbnail}
                   title={book.title}
                   authors={book.authors}
                   moveToShelf={ (shelfTitle) => {
                     // Setup a function that only requires the shelf name to
                     // restrict the book component to only moving itself
                     book.shelf = shelfTitle
+                    // Pass this book and it's newly assigned shelf so that the
+                    // app state can be updated
                     this.props.moveBook(book)
                   }}
-                  shelf={this.props.title}
+                  shelf={this.props.id}
+                  id={book.id}
                 />
               </li>
             ))}
